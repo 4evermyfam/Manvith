@@ -412,6 +412,218 @@
       }
     }
 
+    /* ─── INVITATION CARD SECTION ─── */
+    #invitation-card {
+      background: var(--cream-dark);
+      padding: 80px 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .section-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .section-eyebrow {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .section-line {
+      width: 60px;
+      height: 2px;
+      background: var(--maroon);
+      margin: 15px auto;
+    }
+
+    .inv-card-wrapper {
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .inv-card-frame {
+      position: relative;
+      padding: 10px;
+      background: var(--white);
+      border: 2px solid var(--gold-pale);
+      border-radius: 12px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      max-width: 100%;
+      width: 320px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      overflow: hidden;
+    }
+
+    .inv-card-frame:hover {
+      transform: scale(1.03);
+    }
+
+    .view-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(107, 62, 38, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      color: white;
+      font-size: 1.2rem;
+      font-weight: 600;
+      border-radius: 10px;
+    }
+
+    .inv-card-frame:hover .view-overlay {
+      opacity: 1;
+    }
+
+    .inv-corner {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      border: 3px solid var(--gold);
+      z-index: 2;
+    }
+
+    .inv-corner.tl {
+      top: -2px;
+      left: -2px;
+      border-right: none;
+      border-bottom: none;
+    }
+
+    .inv-corner.tr {
+      top: -2px;
+      right: -2px;
+      border-left: none;
+      border-bottom: none;
+    }
+
+    .inv-corner.bl {
+      bottom: -2px;
+      left: -2px;
+      border-right: none;
+      border-top: none;
+    }
+
+    .inv-corner.br {
+      bottom: -2px;
+      right: -2px;
+      border-left: none;
+      border-top: none;
+    }
+
+    .inv-card-frame img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      display: block;
+    }
+
+    .inv-download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      background: var(--gold);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 50px;
+      transition: transform 0.2s, background 0.2s;
+      box-shadow: 0 4px 15px rgba(197, 155, 39, 0.3);
+      border: none;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+    }
+
+    .inv-download-btn:hover {
+      background: var(--maroon);
+      transform: translateY(-2px);
+      color: var(--white);
+    }
+
+    /* MODAL CSS */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.9);
+      backdrop-filter: blur(5px);
+    }
+
+    .modal-content-wrapper {
+      margin: 5% auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 90%;
+      animation: zoomIn 0.3s ease;
+    }
+
+    @keyframes zoomIn {
+      from {
+        transform: scale(0.9);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .modal-content {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 12px;
+      border: 3px solid var(--gold);
+      box-shadow: 0 0 30px rgba(197, 155, 39, 0.4);
+    }
+
+    .modal-actions {
+      margin-top: 20px;
+      margin-bottom: 40px;
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 15px;
+      right: 30px;
+      color: #f1f1f1;
+      font-size: 40px;
+      font-weight: bold;
+      transition: 0.3s;
+      cursor: pointer;
+      z-index: 2001;
+    }
+
+    .close-modal:hover,
+    .close-modal:focus {
+      color: var(--gold);
+      text-decoration: none;
+    }
+
     /* ─── RSV SECTION ─── */
     #rsvp {
       background: var(--white);
@@ -610,10 +822,10 @@
     <div class="hero-om">ॐ</div>
     <div
       style="font-family:'Poppins',sans-serif;font-size:1.15rem;font-weight:600;letter-spacing:0.15em;color:var(--maroon-dark);text-align:center;text-transform:uppercase;margin-bottom:12px;padding:0 20px;">
-      <span data-lang="en">MADHUVARSU VAARI UPANAYANA Aahvaanam</span>
+      <span data-lang="en">MADHUVARSU VAARI UPANAYANA Mahostava Aahvaanam</span>
       <span data-lang="te" class="tel"
         style="font-size: 1.1em; letter-spacing: 0.05em; font-family: 'Noto Serif Telugu', serif; text-transform: none;">మధువర్సు
-        వారి ఉపనయన ఆహ్వానం</span>
+        వారి ఉపనయన మహోత్సవ ఆహ్వానం</span>
     </div>
     <div class="welcome-divider"></div>
 
@@ -626,25 +838,46 @@
           <span data-lang="en">Event<br />Details</span>
           <span data-lang="te" class="tel">కార్యక్రమ<br />వివరాలు</span>
         </h2>
+
+        <div class="side-info">
+          <div class="info-label"><span data-lang="en">Date</span><span data-lang="te" class="tel">తేదీ</span></div>
+          <div class="info-value"><span data-lang="en">Thursday<br />29 April 2026</span><span data-lang="te"
+              class="tel">గురువారం<br />29 ఏప్రిల్ 2026</span></div>
+        </div>
+
+        <div class="side-info">
+          <div class="info-label"><span data-lang="en">Time</span><span data-lang="te" class="tel">సమయం</span></div>
+          <div class="info-value"><span data-lang="en">9:00 AM</span><span data-lang="te" class="tel">ఉదయం గం. 9:00
+              ని||లకు</span>
+          </div>
+          <div class="info-sub"><span data-lang="en">Turmeric ritual and Getting the groom ready</span><span
+              data-lang="te" class="tel">నలుగు మరియు పెళ్ళికొడుకును చెయ్యుట </span>
+          </div>
+        </div>
+        <div class="welcome-divider" style="width: 50px; margin: 15px auto;"></div>
         <div class="side-info">
           <div class="info-label"><span data-lang="en">Date</span><span data-lang="te" class="tel">తేదీ</span></div>
           <div class="info-value"><span data-lang="en">Thursday<br />30 April 2026</span><span data-lang="te"
               class="tel">గురువారం<br />30 ఏప్రిల్ 2026</span></div>
         </div>
-        <div class="welcome-divider" style="width: 50px; margin: 15px auto;"></div>
+        <div class="side-info" style="margin-top: 15px;">
+          <div class="info-value" style="font-size: 1.2rem;"><span data-lang="en">2:00 AM</span><span data-lang="te"
+              class="tel">తెల్లవారుజమున గం. 2:00 ని||లకు</span></div>
+          <div class="info-sub"><span data-lang="en">Upanayana Festivities Begin</span><span data-lang="te"
+              class="tel">ఉపనయన
+              వేడుకలు
+              ప్రారంభం</span></div>
+        </div>
         <div class="side-info">
-          <div class="info-label"><span data-lang="en">Time</span><span data-lang="te" class="tel">సమయం</span></div>
-          <div class="info-value"><span data-lang="en">7:26 AM</span><span data-lang="te" class="tel">ఉదయం 7:26</span>
+          <div class="info-label"><b><span data-lang="en">Time</span><span data-lang="te" class="tel">సమయం</span></b>
+          </div>
+          <div class="info-value"><b><span data-lang="en">7:26 AM</span><span data-lang="te" class="tel">ఉదయం
+                గం. 7:26 ని||లకు</span></b>
           </div>
           <div class="info-sub"><span data-lang="en">Muhurtham</span><span data-lang="te" class="tel">ముహూర్తం</span>
           </div>
         </div>
-        <div class="side-info" style="margin-top: 15px;">
-          <div class="info-value" style="font-size: 1.2rem;"><span data-lang="en">2:00 AM</span><span data-lang="te"
-              class="tel">తెల్లవారుజమున 2:00</span></div>
-          <div class="info-sub"><span data-lang="en">Festivities Begin</span><span data-lang="te" class="tel">వేడుకలు
-              ప్రారంభం</span></div>
-        </div>
+        <div class="welcome-divider" style="width: 50px; margin: 15px auto;"></div>
       </div>
 
       <!-- CENTER COLUMN: Photos -->
@@ -688,20 +921,28 @@
           <div class="info-label"><span data-lang="en">Location</span><span data-lang="te" class="tel">ప్రదేశం</span>
           </div>
           <div class="info-value"><span data-lang="en">Kamalamma Function Hall</span><span data-lang="te"
-              class="tel">కమలమ్మ ఫంక్షన్ హాల్</span></div>
-          <div class="info-sub"><span data-lang="en">Markapur, Prakasam District, AP</span><span data-lang="te"
-              class="tel">మార్కాపురం, ప్రకాశం జిల్లా</span></div>
+              class="tel">కమలమ్మ ఫంక్షన్ హాల్</span>
+            <div class="info-sub"><span data-lang="en">Amalaka LakshmiNarayana Swamy Kalyana Mandapam</span><span
+                data-lang="te" class="tel"> అమలక లక్ష్మీనారాయణ స్వామి కళ్యాణ మండపం</span></div>
+          </div>
+
+          <div class="info-sub"><span data-lang="en">Markapur, Markapuram District, AP</span><span data-lang="te"
+              class="tel">మార్కాపురం, మార్కాపురం జిల్లా</span></div>
           <a class="map-link" href="https://maps.app.goo.gl/EZxBu91Fdyxr7URT9" target="_blank">
             🗺️ <span data-lang="en">View Map</span><span data-lang="te" class="tel">మ్యాప్ చూడండి</span>
           </a>
         </div>
 
         <div class="welcome-divider" style="width: 50px; margin: 15px auto;"></div>
-        
+
         <div class="side-info">
-          <div class="info-label"><span data-lang="en">House Address</span><span data-lang="te" class="tel">నివాస చిరునామా</span></div>
-          <div class="info-value"><span data-lang="en">Adarsha Apartments - 504, Sai Nagar</span><span data-lang="te" class="tel">ఆదర్శ్ అపార్ట్మెంట్స్ - 504, సాయి నగర్</span></div>
-          <div class="info-sub"><span data-lang="en">Opp to Hero Honda Showroom, Near Aravinda School, Markapuram</span><span data-lang="te" class="tel">హీరో హోండా షోరూమ్ ఎదురుగా, అరవింద స్కూల్ దగ్గర, మార్కాపురం</span></div>
+          <div class="info-label"><span data-lang="en">House Address</span><span data-lang="te" class="tel">నివాస
+              చిరునామా</span></div>
+          <div class="info-value"><span data-lang="en">Adarsha Apartments - 504, Sai Nagar</span><span data-lang="te"
+              class="tel">ఆదర్శా అపార్ట్మెంట్ - 504, సాయి నగర్</span></div>
+          <div class="info-sub"><span data-lang="en">Opp to Hero Honda Showroom, Near Aravinda School,
+              Markapuram</span><span data-lang="te" class="tel">హీరో హోండా షోరూమ్ ఎదురుగా, అరవింద స్కూల్ దగ్గర,
+              మార్కాపురం</span></div>
           <a class="map-link" href="https://goo.gl/maps/SFYLxB3M9ZT3gHJK9" target="_blank">
             🏠 <span data-lang="en">View on Maps</span><span data-lang="te" class="tel">మ్యాప్ లో చూడండి</span>
           </a>
@@ -726,6 +967,64 @@
     </div>
   </section>
 
+
+  <!-- ─── INVITATION CARD ─── -->
+  <section id="invitation-card">
+    <div class="section-inner">
+      <div class="section-header reveal">
+        <span class="section-eyebrow">
+          <span data-lang="en">The Official Invite</span>
+          <span data-lang="te" class="tel">అధికారిక ఆహ్వానం</span>
+        </span>
+        <h2 class="section-title">
+          <span data-lang="en">Invitation Card</span>
+          <span data-lang="te">ఆహ్వాన పత్రిక</span>
+        </h2>
+        <div class="section-line"></div>
+        <p
+          style="margin-top:14px;font-size:0.88rem;color:var(--text-light);max-width:480px;margin-left:auto;margin-right:auto;line-height:1.7;">
+          <span data-lang="en">The sacred invitation card for the Upanayanam ceremony.</span>
+          <span data-lang="te" class="tel">ఉపనయన వేడుక కోసం పవిత్ర ఆహ్వాన పత్రిక</span>
+        </p>
+      </div>
+      <div class="inv-card-wrapper reveal">
+        <div class="inv-card-frame" onclick="openModal()">
+          <div class="inv-corner tl"></div>
+          <div class="inv-corner tr"></div>
+          <div class="inv-corner bl"></div>
+          <div class="inv-corner br"></div>
+          <img id="inv-card-img" src="Images/Invitation_card.jpeg" alt="Upanayanam Invitation Card" />
+          <div class="view-overlay">
+            <span>👁️ <span data-lang="en">Click to View</span><span data-lang="te" class="tel">చూడటానికి
+                నొక్కండి</span></span>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:30px;">
+          <button class="inv-download-btn" onclick="openModal()">
+            👁️ <span data-lang="en">View & Download Card</span><span data-lang="te" class="tel">కార్డు చూసి డౌన్‌లోడ్
+              చేయండి</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODAL FOR INVITATION CARD -->
+  <div id="cardModal" class="modal">
+    <span class="close-modal" onclick="closeModal()">&times;</span>
+    <div class="modal-content-wrapper">
+      <img class="modal-content" id="modalImg" src="Images/Invitation_card.jpeg" alt="Invitation Card Full">
+      <div class="modal-actions">
+        <a class="inv-download-btn" href="Images/Invitation_card.jpeg" download="Upanayanam_Invitation.jpeg">
+          ⬇️ <span data-lang="en">Download Card</span><span data-lang="te" class="tel">కార్డు డౌన్‌లోడ్</span>
+        </a>
+        <button class="inv-download-btn" onclick="shareCard(event)" style="background:var(--maroon);">
+          📤 <span data-lang="en">Share</span><span data-lang="te" class="tel">షేర్</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
   <!-- RSVP FLATTENED FORM -->
   <section id="rsvp">
     <div class="rsvp-container">
@@ -735,8 +1034,10 @@
           <span data-lang="te">హాజరు వివరాలు</span>
         </h2>
         <p class="section-subtitle">
-          <span data-lang="en">Please let us know your arrival details so we can welcome you beautifully! 🙏</span>
-          <span data-lang="te" class="tel">వేడుకకు మీ హాజరు వివరాలు తెలియజేయండి 🙏</span>
+          <span data-lang="en">Please mark your presence to the function without fail, and kindly let us know the
+            arrival of your's so we can plan accordingly! 🙏</span>
+          <span data-lang="te" class="tel">వేడుకకు మీరు తప్పక హాజరు కావలని కోరుతూ
+            వివరాలు తెలియజేయగలరు 🙏</span>
         </p>
       </div>
 
@@ -751,8 +1052,8 @@
 
         <div class="form-row">
           <div class="form-field">
-            <label class="form-label"><span data-lang="en">Date of Reaching Venue *</span><span data-lang="te"
-                class="tel">వేదికకు చేరుకునే తేదీ *</span></label>
+            <label class="form-label"><span data-lang="en">Date of Reaching Markapuram *</span><span data-lang="te"
+                class="tel">మార్కాపురం చేరుకునే తేదీ *</span></label>
             <input class="form-input" type="date" id="f-arrdate" />
             <div class="error-msg" id="err-arrdate"><span data-lang="en">Please pick a date</span><span data-lang="te"
                 class="tel">తేదీని ఎంచుకోండి</span></div>
@@ -821,6 +1122,36 @@
   <script>
     // ADMIN CONFIG
     const ADMIN_WA_NUMBER = "918500617107";
+
+    function openModal() {
+      document.getElementById('cardModal').style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      document.getElementById('cardModal').style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+
+    window.onclick = function (event) {
+      const modal = document.getElementById('cardModal');
+      if (event.target == modal) {
+        closeModal();
+      }
+    }
+
+    function shareCard(event) {
+      event.preventDefault();
+      if (navigator.share) {
+        navigator.share({
+          title: 'Upanayanam Invitation',
+          text: 'Please join us for the Upanayanam ceremony of Manvith. View the invitation card here:',
+          url: window.location.href
+        }).catch(console.error);
+      } else {
+        alert('Sharing is not supported on this browser. You can copy the page link instead!');
+      }
+    }
 
     let currentLang = 'te';
     document.addEventListener('DOMContentLoaded', function () { setLang(currentLang); });
