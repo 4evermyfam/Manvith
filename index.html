@@ -886,7 +886,7 @@
       <p style="color:var(--text-mid); font-size:1.1rem; text-align:center; max-width:400px; margin-top:10px;">
         <span data-lang="en">Join us to celebrate the sacred thread ceremony.</span>
         <span data-lang="te" class="tel">మా జ్యేష్ఠ పుత్రుడు సుభాష్ చంద్ర మన్విత్ ఉపనయన కార్యక్రమానికి మీరు తప్పక హాజరు
-          కావాలని సాదరంగా ఆహ్వానిస్తున్నాము.</span>
+          కావలని సాదరంగా ఆహ్వానిస్తున్నాము.</span>
       </p>
     </div>
 
@@ -972,7 +972,7 @@
               లకు</span>
           </div>
           <div class="info-sub"><span data-lang="en">Turmeric ritual and Getting the groom ready</span><span
-              data-lang="te" class="tel">నలుగు మరియు పెళ్ళికొడుకును చేయుట </span>
+              data-lang="te" class="tel">నలుగు మరియు పెళ్ళికొడుకును చెయ్యుట </span>
           </div>
         </div>
         <div class="welcome-divider" style="width: 50px; margin: 15px auto;"></div>
@@ -1012,8 +1012,8 @@
           </div>
           <div class="info-value"><span data-lang="en">Kamalamma Function Hall</span><span data-lang="te"
               class="tel">కమలమ్మ ఫంక్షన్ హాల్</span>
-            <div class="info-sub"><span data-lang="en"> Shri Amalaka LakshmiNarayana Swamy Kalyana Mandapam</span><span
-                data-lang="te" class="tel"> శ్రీ అమలక లక్ష్మీనారాయణ స్వామి కళ్యాణ మండపం</span></div>
+            <div class="info-sub"><span data-lang="en">Amalaka LakshmiNarayana Swamy Kalyana Mandapam</span><span
+                data-lang="te" class="tel"> అమలక లక్ష్మీనారాయణ స్వామి కళ్యాణ మండపం</span></div>
           </div>
 
           <div class="info-sub"><span data-lang="en">Markapur, Markapuram District, AP</span><span data-lang="te"
@@ -1064,7 +1064,7 @@
         <p class="section-subtitle">
           <span data-lang="en">Please mark your presence to the function without fail, and kindly let us know the
             arrival of your's so we can plan accordingly! 🙏</span>
-          <span data-lang="te" class="tel">వేడుకకు మీరు తప్పక హాజరు కావలని కోరుతూ తగు ఏర్పాట్ల నిమిత్తం తమ
+          <span data-lang="te" class="tel">వేడుకకు మీరు తప్పక హాజరు కావలని కోరుతూ
             వివరాలు తెలియజేయగలరు 🙏</span>
         </p>
       </div>
@@ -1098,6 +1098,18 @@
             <div class="error-msg" id="err-stay"><span data-lang="en">Please select an option</span><span data-lang="te"
                 class="tel">దీన్ని ఎంచుకోండి</span></div>
           </div>
+        </div>
+
+        <div class="form-field">
+          <label class="form-label"><span data-lang="en">Number of people arriving? *</span><span data-lang="te"
+              class="tel">ఎంతమంది వస్తున్నారు? *</span></label>
+          <input class="form-input" type="number" id="f-guests" min="1" placeholder="e.g. 2" />
+          <p style="font-size: 0.85rem; color: var(--text-mid); margin-top: 5px; font-style: italic;">
+            <span data-lang="en">(This will help us arrange accommodation smoothly)</span>
+            <span data-lang="te" class="tel">(ఇది మాకు వసతి సదుపాయం ఏర్పాటు చేయుటకు సులభతరం అవుతుంది)</span>
+          </p>
+          <div class="error-msg" id="err-guests"><span data-lang="en">Please enter the number of people</span><span data-lang="te"
+              class="tel">దయచేసి సంఖ్యను ఎంటర్ చేయండి</span></div>
         </div>
 
         <button class="submit-btn" onclick="submitRSVP()">
@@ -1210,11 +1222,15 @@
       clearErr('f-stay', 'err-stay');
       if (!document.getElementById('f-stay').value) { showErr('f-stay', 'err-stay'); ok = false; }
 
+      clearErr('f-guests', 'err-guests');
+      if (!document.getElementById('f-guests').value) { showErr('f-guests', 'err-guests'); ok = false; }
+
       if (!ok) return;
 
       const name = document.getElementById('f-name').value.trim();
       const arrdate = document.getElementById('f-arrdate').value;
       const stay = document.getElementById('f-stay').value;
+      const guests = document.getElementById('f-guests').value;
 
       let dateStr = arrdate;
       try {
@@ -1229,6 +1245,7 @@
 ━━━━━━━━━━━━━━━━━━━━━
 *Date of Reaching Venue:* ${dateStr}
 *Accommodation Required:* ${stay}
+*Number of People Arriving:* ${guests}
 ━━━━━━━━━━━━━━━━━━━━━`;
 
       const url = `https://wa.me/${ADMIN_WA_NUMBER}?text=${encodeURIComponent(msg)}`;
